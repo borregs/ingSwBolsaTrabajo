@@ -1,0 +1,49 @@
+/*
+Debug purposes
+*/
+div{
+    outline: black;
+    border: #2a6478 solid 0.1em;
+}
+
+/*
+EOF DBUG
+*/
+*{
+    padding: 5px;
+    margin: 1px;
+}#branding{
+    border-radius: 10%;
+    height: 10vw;
+    width: 10vw;
+}.formato{
+    float: right;
+    margin-right: 33vw;
+    margin-top: 1em;
+}.inline{
+    display: inline;
+}.inline-block{
+    display: inline-block;
+}.nav-itm{
+    background-color: #add8e6;
+    color: #2a7478;
+    flex: 5;
+    text-wrap: nowrap;
+}.nav-itm:hover{
+    background-color: #79b6c9;
+    text-decoration: underline;
+}.selected{
+    background-color: #2a6478;
+    color: #3e888c;
+    font-weight: bold;
+    text-wrap: nowrap;
+}.navbar{
+    max-width: 100vw;
+    padding: 15px;
+}.flexbox{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}textarea{
+    min-width: 23vw;
+};
