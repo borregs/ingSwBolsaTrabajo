@@ -32,8 +32,8 @@ include "./dbconect.php";
                     <div class="inline-block nav-itm">Bolsa de Trabajo</div>
                 </div>
             </nav>
-            <div class="container">
-                <div id="tablaSolic" class="container">
+            <div class="">
+                <div id="tablaSolic">
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
@@ -42,6 +42,7 @@ include "./dbconect.php";
                             <th scope='col'>sexo</th>
                             <th scope='col'>edad</th>
                             <th scope='col'>experiencia</th>
+                            <th scope='col'>perfil</th>
                             <th scope='col'>escolaridad</th>
                             <th scope='col'>telefono</th>
                             <th scope='col'>rfc</th>
@@ -55,8 +56,8 @@ include "./dbconect.php";
                         </thead>
                         <tbody>
                             <?php
-                                //$sql="SELECT bolsa.NoCtrl, experiencia.ExpDesc, perfil.perfil, bolsa.Nombre, bolsa.ApPat, bolsa.ApMat, bolsa.Sexo, bolsa.FechNac, bolsa.School, bolsa.Tel, bolsa.RFC,bolsa.NSS,bolsa.EdoCiv,bolsa.FechIn,bolsa.Com FROM `experiencia` JOIN `exp2solic` ON experiencia.ExpID = exp2solic.expId JOIN `perf2solic` ON exp2solic.noctrl = perf2solic.noctrl JOIN `perfil` ON perf2solic.perfID = perfil.idPerf JOIN `bolsa` ON perf2solic.noctrl = bolsa.NoCtrl; "
-                                $sql = "SELECT * FROM `bolsa`";
+                                $sql="SELECT bolsa.NoCtrl, experiencia.ExpDesc, perfil.perfil, bolsa.Nombre, bolsa.ApPat, bolsa.ApMat, bolsa.Sexo, bolsa.FechNac, bolsa.School, bolsa.Tel, bolsa.RFC,bolsa.NSS,bolsa.EdoCiv,bolsa.FechIn,bolsa.Com,bolsa.Stat FROM `experiencia` JOIN `exp2solic` ON experiencia.ExpID = exp2solic.expId JOIN `perf2solic` ON exp2solic.noctrl = perf2solic.noctrl JOIN `perfil` ON perf2solic.perfID = perfil.idPerf JOIN `bolsa` ON perf2solic.noctrl = bolsa.NoCtrl; ";
+                                //$sql = "SELECT * FROM `bolsa`";
                                 $result = mysqli_query($conn,$sql);
 
                                 while($row = mysqli_fetch_assoc($result)){
@@ -66,7 +67,8 @@ include "./dbconect.php";
                                         <td id="nombreField"><?php echo $row['Nombre'].$row['ApPat'].$row['ApMat']?></td>
                                         <td id="SexoField"><?php echo $row['Sexo']?></td>
                                         <td id="FechNacField" class='FechNacField'><?php echo $row['FechNac']?></td>
-                                        <td id="ExpField"> </td>
+                                        <td id="ExpField"><?php echo $row['ExpDesc'] ?> </td>
+                                        <td id="Perfil"><?php echo $row['perfil'] ?> </td>
                                         <td id="SchoolField"><?php echo $row['School']?></td>
                                         <td id="TelField"><?php echo $row['Tel']?></td>
                                         <td id="RFCField"><?php echo $row['RFC']?></td>
